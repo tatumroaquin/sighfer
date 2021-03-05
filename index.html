@@ -1,0 +1,68 @@
+<html>
+   <head>
+      <title>Reversal Cipher</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <style>
+         .gradient {
+            background-image: linear-gradient(to right, cyan, orange);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+         }
+         body {
+            background-color: black;
+         }
+         textarea {
+            width:90%; height:90%
+         }
+
+         .ta-center {
+            background-color: ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80%
+         }
+      </style>
+   </head>
+   <body>
+      <h3 class='text-center'>
+         <span class='gradient'>Word Reversal</span>
+      </h3>
+      <h6 class='text-center'>
+         <span class='gradient'>rub1kz</span>
+      </h6>
+
+      <div class='container'>
+         <div class='ta-center'>
+            <textarea id='ui' rows='500'></textarea>
+         </div>
+      </div>
+
+      <div class='container'>
+         <div class='text-center'>
+         <button onclick=setTextArea() class='btn btn-lg btn-outline-dark'>
+            <span class='gradient'>translate</span>
+         </button>
+         </div>
+      </div>
+
+      <script>
+         let jsReversal = (cipher) => {
+            return cipher.split('\n')
+            .map
+            (
+               sentence => sentence.split(' ')
+               .map( word => word.split('').reverse().join('') ).join(' ')
+            ).join('\n')
+         }
+         let setTextArea = () => {
+            let textarea = document.getElementById('ui')
+            let result = jsReversal(textarea.value)
+            textarea.value = result
+         }
+
+      </script>
+   </body>
+</html>
