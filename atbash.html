@@ -1,0 +1,89 @@
+<html>
+   <head>
+      <title>Caesar Cipher</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <style>
+         .gradient {
+            background-image: linear-gradient(to right, cyan, orange, red);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+         }
+         body {
+            background-color: black;
+         }
+
+         @media only screen
+         and (max-device-width: 2000px)
+         and (orientation: landscape)
+         {
+            textarea {
+               width:100%; height:74%;
+            }
+         }
+
+         @media only screen 
+         and (max-device-width: 736px) 
+         and (orientation: portrait) { 
+            textarea {
+               width:100%; height:88%
+            }
+         }
+
+      </style>
+   </head>
+   <body>
+      <button onclick="document.location.href='index.html'" class='btn btn-outline-warning'>Menu</button>
+      <h1 class='text-center'>
+         <span class='gradient'>Atbash Cipher</span>
+      </h1>
+      <h6 class='text-center'>
+         <span class='gradient'>rub1kz</span>
+      </h6>
+
+      <div class='container-fluid'>
+         <div class='text-center'>
+            <textarea id='ui'></textarea>
+         </div>
+
+         <div class='text-center'>
+            <button onclick=setTextArea() class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+               <span class='gradient'>translate</span>
+            </button>
+         </div>
+      </div>
+
+      <script>
+         let jsAtbash = (text) => {
+            let upper = new RegExp(/[A-Z]/);
+            let lower = new RegExp(/[a-z]/);
+            let uoffset = 'A'.charCodeAt(0) + 'Z'.charCodeAt(0);
+            let loffset = 'a'.charCodeAt(0) + 'z'.charCodeAt(0);
+
+            return text.split('')
+            .map( char => {
+               let result = 0
+               if( upper.test(char) ) {
+                  result = uoffset - char.charCodeAt(0)
+               }
+               else if( lower.test(char) ) {
+                  result = loffset - char.charCodeAt(0)
+               } else {
+                  result = char.charCodeAt(0)
+               }
+               return String.fromCharCode(result)
+            }
+            ).join('')
+         }
+
+         let setTextArea = () => {
+            let textarea = document.getElementById('ui')
+            let keyfield = document.getElementById('key')
+            let result = jsAtbash(textarea.value)
+            textarea.value = result
+         }
+
+      </script>
+   </body>
+</html>
