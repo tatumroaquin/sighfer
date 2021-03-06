@@ -70,10 +70,18 @@
             .map( char => {
                let result = 0
                if( upper.test(char) ) {
-                  result = ( char.charCodeAt(0) - uoffset + key ) % 26 + uoffset
+                  let pos = char.charCodeAt(0) - uoffset
+                  if( pos + key > 0 )
+                     result = ( pos + key ) % 26 + uoffset
+                  else
+                     result = (pos + key + 26) % 26 + uoffset
                }
                else if( lower.test(char) ) {
-                  result = ( char.charCodeAt(0) - loffset + key ) % 26 + loffset
+                  let pos = char.charCodeAt(0) - loffset
+                  if( pos + key > 0 )
+                     result = (pos + key) % 26 + loffset
+                  else
+                     result = (pos + key + 26) % 26 + loffset
                } else {
                   result = char.charCodeAt(0)
                }
