@@ -1,0 +1,75 @@
+<html>
+   <head>
+      <title>Reversal Cipher</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <style>
+         .gradient {
+            background-image: linear-gradient(to right, cyan, orange, red);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+         }
+         body {
+            background-color: black;
+         }
+
+         @media only screen
+         and (max-device-width: 2000px)
+         and (orientation: landscape)
+         {
+            textarea {
+               width:100%; height:80%;
+            }
+         }
+
+         @media only screen 
+         and (max-device-width: 736px) 
+         and (orientation: portrait) { 
+            textarea {
+               width:100%; height:90%
+            }
+         }
+
+      </style>
+   </head>
+   <body>
+      <h1 class='text-center'>
+         <span class='gradient'>Word Reversal</span>
+      </h1>
+      <h6 class='text-center'>
+         <span class='gradient'>rub1kz</span>
+      </h6>
+
+      <div class='container-fluid'>
+         <div class='text-center'>
+            <textarea id='ui'></textarea>
+         </div>
+      </div>
+
+      <div class='container-fluid'>
+         <div class='text-center'>
+            <button onclick=setTextArea() class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+               <span class='gradient'>translate</span>
+            </button>
+         </div>
+      </div>
+
+      <script>
+         let jsReversal = (cipher) => {
+            return cipher.split('\n')
+            .map
+            (
+               sentence => sentence.split(' ')
+               .map( word => word.split('').reverse().join('') ).join(' ')
+            ).join('\n')
+         }
+         let setTextArea = () => {
+            let textarea = document.getElementById('ui')
+            let result = jsReversal(textarea.value)
+            textarea.value = result
+         }
+
+      </script>
+   </body>
+</html>
