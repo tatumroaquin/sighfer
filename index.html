@@ -13,8 +13,19 @@
          body {
             background-color: black;
          }
+
+         @media only screen 
+         and (min-device-width: 414px) 
+         and (max-device-width: 736px) 
+         and (-webkit-min-device-pixel-ratio: 3)
+         and (orientation: portrait) { 
+            textarea {
+               width:100%; height:90%
+            }
+         }
+
          textarea {
-            width:100%; height:80%
+            width:100%; height:80%;
          }
 
       </style>
@@ -27,14 +38,18 @@
          <span class='gradient'>rub1kz</span>
       </h6>
 
-      <div class='text-center'>
-         <textarea id='ui'></textarea>
+      <div class='container-fluid'>
+         <div class='text-center'>
+            <textarea id='ui'></textarea>
+         </div>
       </div>
 
-      <div class='text-center'>
-         <button onclick=setTextArea() class='btn btn-lg btn-outline-dark btn-block'>
-            <span class='gradient'>translate</span>
-         </button>
+      <div class='container-fluid'>
+         <div class='text-center'>
+            <button onclick=setTextArea() class='btn btn-outline-dark btn-block btn-lg btn-huge'>
+               <span class='gradient'>translate</span>
+            </button>
+         </div>
       </div>
 
       <script>
