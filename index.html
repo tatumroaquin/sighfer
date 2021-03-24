@@ -12,7 +12,7 @@
             color: transparent;
          }
          p {
-            word-break: normal;
+            word-wrap: break-word;
          }
          body {
             background-color: black;
@@ -41,28 +41,12 @@
             <button onclick="document.location.href='rot13.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
                <span class='gradient'>Rot13 Cipher</span>
             </button>
-
+         </div>
+         
+         <div class='text-center text-wrap'>
             <p><span class='gradient'><i>As I gaze upon the world, I *sigh* my life away to the hidden messages.</i></span></p>
             <p><span class='gradient'>More Classical Cipher Tools Coming Soon</span></p>
             <h6><span class='gradient'>rub1kz</span></h6>
-         </div>
       </div>
-
-      <script>
-         let jsReversal = (cipher) => {
-            return cipher.split('\n')
-            .map
-            (
-               sentence => sentence.split(' ')
-               .map( word => word.split('').reverse().join('') ).join(' ')
-            ).join('\n')
-         }
-         let setTextArea = () => {
-            let textarea = document.getElementById('ui')
-            let result = jsReversal(textarea.value)
-            textarea.value = result
-         }
-
-      </script>
    </body>
 </html>
