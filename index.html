@@ -6,13 +6,17 @@
       <style>
          .gradient {
             background-image: linear-gradient(to right, cyan, orange, red);
-            -webkit-background-clip: text;
+            -webkit-background-clip: text; 
             -moz-background-clip: text;
             background-clip: text;
             color: transparent;
          }
          body {
             background-color: black;
+         }
+         span {
+            display: block;
+            word-wrap: break-word;
          }
       </style>
    </head>
@@ -40,10 +44,16 @@
             </button>
          </div>
          
-         <div class='container-fluid text-center text-wrap gradient'>
-            <p><i>As I gaze upon the world, I *sigh* my life away to the hidden messages.</i></p>
-         <p>More Classical Cipher Tools Coming Soon</p>
-         <h6>rub1kz</h6>
+         <div class='container-fluid text-center text-wrap'>
+            <span class='gradient'>
+               <i>As I gaze upon the world, I *sigh* my life away to the hidden messages.</i>
+            </span><br>
+            <span class='gradient'>
+               <i>More classical ciphers coming soon</i>
+            </span><br>
+            <span class='gradient'>
+               <strong>rub1kz</strong>
+            </span>
          </div>
       </div>
    </body>
