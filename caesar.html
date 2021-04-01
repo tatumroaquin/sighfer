@@ -3,40 +3,13 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Caesar Cipher</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-      <style>
-         .gradient {
-            background-image: linear-gradient(to right, cyan, orange, red);
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            background-clip: text;
-            color: transparent;
-         }
-         body {
-            background-color: black;
-         }
-
-         @media only screen
-         and (max-device-width: 2000px)
-         and (orientation: landscape)
-         {
-            textarea {
-               width:100%; height:69%;
-               background-color: darkgrey;
-            }
-         }
-
-         @media only screen 
-         and (max-device-width: 736px) 
-         and (orientation: portrait) { 
-            textarea {
-               width:100%; height:70%;
-               background-color: darkgrey;
-            }
-         }
-
-      </style>
+      <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="css/media.css">
    </head>
    <body>
+      <script src="js/caesar.js"></script>
+      <script src="js/setTextArea.js"></script>
+
       <button onclick="document.location.href='index.html'" class='btn btn-outline-warning'>Menu</button>
       <h1 class='text-center'>
          <span class='gradient'>Caesar Cipher</span>
@@ -53,53 +26,19 @@
 
       <div class='container-fluid'>
          <div class='text-center'>
-            <input id='key' type='number' placeholder='(+ / -) integer'></input>
-         </div>
-         <div class='text-center'>
-            <button onclick=setTextArea() class='btn btn-outline-warning btn-block btn-lg btn-huge'>
-               <span class='gradient'>translate</span>
-            </button>
+            <table class='mx-auto'>
+               <tr>
+                  <td>
+                     <input id='key' type='number' min="1" max="100" placeholder='(+/-) int'/>
+                  </td>
+                  <td>
+                     <button onclick="setTextArea(caesar)" class='btn btn-outline-warning btn-lg btn-huge'>
+                        <span class='gradient'>translate</span>
+                     </button>
+                  </td>
+               </tr>
+            </table>
          </div>
       </div>
-
-      <script>
-         let jsCaesar = (text, key) => {
-            let upper = new RegExp(/[A-Z]/);
-            let lower = new RegExp(/[a-z]/);
-            let uoffset = 'A'.charCodeAt(0);
-            let loffset = 'a'.charCodeAt(0);
-
-            return text.split('')
-            .map( char => {
-               let result = 0
-               if( upper.test(char) ) {
-                  let pos = char.charCodeAt(0) - uoffset
-                  if( pos + key > 0 )
-                     result = ( pos + key ) % 26 + uoffset
-                  else
-                     result = (pos + key + 26) % 26 + uoffset
-               }
-               else if( lower.test(char) ) {
-                  let pos = char.charCodeAt(0) - loffset
-                  if( pos + key > 0 )
-                     result = (pos + key) % 26 + loffset
-                  else
-                     result = (pos + key + 26) % 26 + loffset
-               } else {
-                  result = char.charCodeAt(0)
-               }
-               return String.fromCharCode(result)
-            }
-            ).join('')
-         }
-
-         let setTextArea = () => {
-            let textarea = document.getElementById('ui')
-            let keyfield = document.getElementById('key')
-            let result = jsCaesar(textarea.value, parseInt(keyfield.value))
-            textarea.value = result
-         }
-
-      </script>
    </body>
 </html>
