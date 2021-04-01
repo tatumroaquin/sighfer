@@ -5,17 +5,20 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <style>
          .gradient {
-            background-image: linear-gradient(to right, cyan, orange, red);
+            background-image: linear-gradient(to right, cyan, green, yellow, orange, red);
             -webkit-background-clip: text; 
             -moz-background-clip: text;
             background-clip: text;
             color: transparent;
          }
+         .btn-outline-warning:hover {
+            background-color: #303030 !important;
+         }
          body {
             background-color: black;
          }
          span {
-            display: block;
+            display: inline-block;
             word-wrap: break-word;
          }
       </style>
@@ -25,8 +28,7 @@
          <span class='gradient'>Sighfer Central</span>
       </h1>
 
-      <div class='container-fluid'>
-         <div class='text-center'>
+      <div class='container-fluid text-center'>
             <button onclick="document.location.href='atbash.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
                <span class='gradient'>Atbash Cipher</span>
             </button>
@@ -42,19 +44,49 @@
             <button onclick="document.location.href='rot13.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
                <span class='gradient'>Rot13 Cipher</span>
             </button>
-         </div>
-         
-         <div class='container-fluid text-center text-wrap'>
-            <span class='gradient'>
-               <i>As I gaze upon the world, I *sigh* my life away to the hidden messages.</i>
-            </span><br>
-            <span class='gradient'>
-               <i>More classical ciphers coming soon</i>
-            </span><br>
-            <span class='gradient'>
-               <strong>rub1kz</strong>
-            </span>
-         </div>
+
+            <button onclick="inProgress('affine')" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+               <span id='affine' class='gradient'>Affine Cipher</span>
+            </button>
+
+            <button onclick="inProgress('base64')" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+               <span id='base64' class='gradient'>Base64 Encoding</span>
+            </button>
+
       </div>
+
+      <div class='container-fluid text-center text-wrap'>
+         <p>
+         <span class='gradient'>
+            <i>As I gaze upon the world, I *sigh* my life away to the hidden messages.</i>
+         </span>
+         </p>
+
+         <p>
+         <span class='gradient'>
+            <i>More classical ciphers coming soon</i>
+         </span>
+         </p>
+
+         <p>
+         <span class='gradient'>
+            <strong>rub1kz</strong>
+         </span>
+         </p>
+      </div>
+
+      <script>
+         function inProgress(name)
+         {
+            let elem = document.getElementById(name);
+            let str1 = "This feature is in development";
+            let str2 = "You really like pushing my buttons";
+
+            if(elem.innerHTML == str1)
+               elem.innerHTML = str2;
+            else
+               elem.innerHTML = str1;
+         }
+      </script>
    </body>
 </html>
