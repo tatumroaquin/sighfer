@@ -1,0 +1,21 @@
+.gradient {
+   background-image: linear-gradient(to right, cyan, green, yellow, orange, red);
+   -webkit-background-clip: text; 
+   -moz-background-clip: text;
+   background-clip: text;
+   color: transparent;
+}
+.btn-outline-warning:hover {
+   background-color: #303030 !important;
+}
+body {
+   background-color: black;
+}
+span {
+   display: inline-block;
+   word-wrap: break-word;
+}
+table {
+   border-spacing: 10px;
+   border-collapse: separate;
+}
