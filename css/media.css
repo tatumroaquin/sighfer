@@ -62,7 +62,7 @@
    }
 
    .btn-large {
-      display: block;
+      display: none;
    }
    .btn-small {
       display: block;
