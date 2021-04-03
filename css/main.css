@@ -1,3 +1,42 @@
+@font-face {
+    font-family: 'TerminessTTF Nerd Font Mono';
+    src: url('../fonts/TerminessTTFNerdFontCompleteM-Italic.eot');
+    src: url('../fonts/TerminessTTFNerdFontCompleteM-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/TerminessTTFNerdFontCompleteM-Italic.woff2') format('woff2'),
+        url('../fonts/TerminessTTFNerdFontCompleteM-Italic.woff') format('woff'),
+        url('../fonts/TerminessTTFNerdFontCompleteM-Italic.ttf') format('truetype'),
+        url('../fonts/TerminessTTFNerdFontCompleteM-Italic.svg#TerminessTTFNerdFontCompleteM-Italic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TerminessTTF Nerd Font Mono';
+    src: url('../fonts/TerminessTTFNerdFontCompleteM-Medium.eot');
+    src: url('../fonts/TerminessTTFNerdFontCompleteM-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/TerminessTTFNerdFontCompleteM-Medium.woff2') format('woff2'),
+        url('../fonts/TerminessTTFNerdFontCompleteM-Medium.woff') format('woff'),
+        url('../fonts/TerminessTTFNerdFontCompleteM-Medium.ttf') format('truetype'),
+        url('../fonts/TerminessTTFNerdFontCompleteM-Medium.svg#TerminessTTFNerdFontCompleteM-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TerminessTTF Nerd Font Mono';
+    src: url('../fonts/TerminessTTFNerdFontCompleteM-Bold.eot');
+    src: url('../fonts/TerminessTTFNerdFontCompleteM-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/TerminessTTFNerdFontCompleteM-Bold.woff2') format('woff2'),
+        url('../fonts/TerminessTTFNerdFontCompleteM-Bold.woff') format('woff'),
+        url('../fonts/TerminessTTFNerdFontCompleteM-Bold.ttf') format('truetype'),
+        url('../fonts/TerminessTTFNerdFontCompleteM-Bold.svg#TerminessTTFNerdFontCompleteM-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 .gradient {
    background-image: linear-gradient(to right, cyan, green, yellow, orange, red);
    -webkit-background-clip: text; 
@@ -10,6 +49,7 @@
 }
 body {
    background-color: black;
+   font-family: 'TerminessTTF Nerd Font Mono';
 }
 span {
    display: inline-block;
@@ -18,4 +58,5 @@ span {
 table {
    border-spacing: 10px;
    border-collapse: separate;
+   table-layout: fixed;
 }
