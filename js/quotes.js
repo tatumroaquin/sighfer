@@ -11,5 +11,6 @@ let quotes = [
    "Studying calculus has given me an insight about the concept of infinity, and I realised that it is an exact blueprint of the mind.",
    "By observing evolution, making artificial intelligence, and learning the language of the machines, I saw profound truths about the world that I didn't realise before...",
    "The world as you know it is an illusion, all that you see, hear, smell, taste, and touch are the five pillars of this great prison you call reality.",
-   "My words are mine and mine alone, I discover my own wisdom, and avoid using the words of others as a compass for my own life."
+   "My words are mine and mine alone, I discover my own wisdom, and avoid using the words of others as a compass for my own life.",
+   "In movies they tell stories about the outcasts of society, but they never tell you stories about misfits among those outcasts."
 ];
