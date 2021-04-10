@@ -1,10 +1,10 @@
 # Sighfer
-A collection of classical cipher encrypt/decryption tools, for solving cryptographic puzzles.
+A collection of classical cipher encrypt/decryption tools, for solving cryptographic puzzles and to understand how information is represented in different forms.
 
 @author: ormux  
 @date: 06/03/2021  
 @link: https://ormux.github.io/sighfer  
-@modified: 02/04/2021  
+@modified: 10/04/2021  
 @title: Sighfer Central  
 @type: website  
 
@@ -12,6 +12,8 @@ A collection of classical cipher encrypt/decryption tools, for solving cryptogra
 | Cipher    | Description |
 ------------|-------------|
 | Atbash    | monoalphabetic substitution cipher originally used by Hebrews to encrypt the Torah and essentially uses a reversed alphabet |
+| Base16    | commonly known as 'hexadecimal' an encoding scheme which translate ASCII into radix-16, and used to represent binary data in a compact form |
+| Base32    | an encoding scheme which translates ASCII into radix-32 representation, resulting character set is one-case and is beneficial for case-insenstive transmissions |
 | Base64    | an encoding scheme which translates ASCII into radix-64 representation, used to transfer binary data through text only channels e.g. HTTP |
 | Caesar    | a shift cipher named after Julius Caesar, which utilises numeric shifts to displace each letter of a text by the same integer value |
 | Reversal  | this is a modified version of the Reversal Cipher which only reverses each word and does not reverse the sentence itself |
