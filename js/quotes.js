@@ -12,5 +12,7 @@ let quotes = [
    "By observing evolution, making artificial intelligence, and learning the language of the machines, I saw profound truths about the world that I didn't realise before...",
    "The world as you know it is an illusion, all that you see, hear, smell, taste, and touch are the five pillars of this great prison you call reality.",
    "My words are mine and mine alone, I discover my own wisdom, and avoid using the words of others as a compass for my own life.",
-   "In movies they tell stories about the outcasts of society, but they never tell you stories about misfits among those outcasts."
+   "In movies they tell stories about the outcasts of society, but they never tell you stories about misfits among those outcasts.",
+   "you may think that the earth is flat or round, I say neither... it's fucked",
+   "If you ask me how I know the things I know, how I do the things I do, the truth is... everybody knows what I know and everybody does I do... you're just not aware of your own potential"
 ];
