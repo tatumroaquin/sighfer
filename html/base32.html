@@ -1,0 +1,54 @@
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Base32 Encoding</title>
+      <link rel="icon" href="../img/favicon.png" type="image/png">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="../css/main.css">
+      <link rel="stylesheet" href="../css/media.css">
+   </head>
+   <body>
+      <script src="../js/base32.js"></script>
+      <script src="../js/output.js"></script>
+
+      <button onclick="document.location.href='../index.html'" class='btn btn-outline-warning'>Menu</button>
+      <h1 class='text-center'>
+         <span class='gradient'>Base32 Encoding</span>
+      </h1>
+      <h6 class='text-center'>
+         <span class='gradient'>rub1kz</span>
+      </h6>
+
+      <div class='container-fluid'>
+         <div class='text-center'>
+            <textarea id='ui'></textarea>
+         </div>
+      </div>
+
+      <div class='container-fluid'>
+         <div class="text-center">
+            <table class="mx-auto" width=100%>
+               <tr>
+                  <td>
+                     <button onclick="output(base32, 'encode')" style="float: right;" class='btn btn-outline-warning btn-lg btn-huge btn-small'>
+                        <span class='gradient'>encode</span>
+                     </button>
+                     <button onclick="output(base32, 'encode')" class='btn btn-outline-warning btn-block btn-lg btn-huge btn-large'>
+                        <span class='gradient'>encode</span>
+                     </button>
+                  </td>
+                  <td>
+                     <button onclick="output(base32, 'decode')" class='btn btn-outline-warning btn-lg btn-huge btn-small'>
+                        <span class='gradient'>decode</span>
+                     </button>
+                     <button onclick="output(base32, 'decode')" class='btn btn-outline-warning btn-block btn-lg btn-huge btn-large'>
+                        <span class='gradient'>decode</span>
+                     </button>
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+
+   </body>
+</html>
