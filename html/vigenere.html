@@ -2,13 +2,14 @@
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Vigenere Cipher</title>
+      <link rel="icon" href="../img/favicon.png" type="image/png">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="../css/main.css">
       <link rel="stylesheet" href="../css/media.css">
    </head>
    <body>
       <script src="../js/vigenere.js"></script>
-      <script src="../js/setTextArea.js"></script>
+      <script src="../js/output.js"></script>
 
       <button onclick="document.location.href='../index.html'" class='btn btn-outline-warning'>Menu</button>
       <h1 class='text-center'>
@@ -20,7 +21,7 @@
 
       <div class='container-fluid'>
          <div class='text-center'>
-            <textarea id='ui'></textarea>
+            <textarea id='ui' style="height: 70%;"></textarea>
          </div>
       </div>
 
@@ -34,12 +35,12 @@
                </tr>
                <tr>
                   <td>
-                     <button onclick="setTextArea(vigenereEncode)" class='btn btn-outline-warning btn-lg btn-huge'>
+                     <button onclick="output(vigenere, 'encode')" class='btn btn-outline-warning btn-lg btn-huge'>
                         <span class='gradient'>encode</span>
                      </button>
                   </td>
                   <td>
-                     <button onclick="setTextArea(vigenereDecode)" class='btn btn-outline-warning btn-lg btn-huge'>
+                     <button onclick="output(vigenere, 'decode')" class='btn btn-outline-warning btn-lg btn-huge'>
                         <span class='gradient'>decode</span>
                      </button>
                   </td>

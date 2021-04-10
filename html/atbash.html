@@ -2,13 +2,14 @@
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Atbash Cipher</title>
+      <link rel="icon" href="../img/favicon.png" type="image/png">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="../css/main.css">
       <link rel="stylesheet" href="../css/media.css">
    </head>
    <body>
       <script src="../js/atbash.js"></script>
-      <script src="../js/setTextArea.js"></script>
+      <script src="../js/output.js"></script>
 
       <button onclick="document.location.href='../index.html'" class='btn btn-outline-warning'>Menu</button>
       <h1 class='text-center'>
@@ -24,10 +25,10 @@
          </div>
 
          <div class='text-center'>
-            <button onclick="setTextArea(atbash)" class='btn btn-outline-warning btn-lg btn-huge btn-small mx-auto'>
+            <button onclick="output(atbash, 'encode')" class='btn btn-outline-warning btn-lg btn-huge btn-small mx-auto'>
                <span class='gradient'>translate</span>
             </button>
-            <button onclick="setTextArea(atbash)" class='btn btn-outline-warning btn-block btn-lg btn-huge btn-large'>
+            <button onclick="output(atbash, 'encode')" class='btn btn-outline-warning btn-block btn-lg btn-huge btn-large'>
                <span class='gradient'>translate</span>
             </button>
          </div>
