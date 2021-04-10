@@ -1,10 +1,24 @@
-let reversal = (...args) => {
-   let cipher = args[0];
+class Reversal {
+   constructor(...args) {
+      this.text = args[0]
+   }
 
-   return cipher.split('\n')
-   .map
-   (
-      sentence => sentence.split(' ')
-      .map( word => word.split('').reverse().join('') ).join(' ')
-   ).join('\n')
+   setText(text) {
+      this.text = text;
+   }
+
+   getText() {
+      return this.text;
+   }
+
+   encode() {
+      return this.text.split('\n')
+      .map
+      (
+         sentence => sentence.split(' ')
+         .map( word => word.split('').reverse().join('') ).join(' ')
+      ).join('\n')
+   }
 }
+
+let reversal = new Reversal();

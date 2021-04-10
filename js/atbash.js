@@ -1,23 +1,36 @@
-let atbash = (...args) => {
-   let text = args[0];
-
-   let upper = new RegExp(/[A-Z]/);
-   let lower = new RegExp(/[a-z]/);
-   let uoffset = 'A'.charCodeAt(0) + 'Z'.charCodeAt(0);
-   let loffset = 'a'.charCodeAt(0) + 'z'.charCodeAt(0);
-
-   return text.split('')
-   .map( char => {
-      let result = 0
-      if( upper.test(char) ) {
-         result = uoffset - char.charCodeAt(0)
-      }
-      else if( lower.test(char) ) {
-         result = loffset - char.charCodeAt(0)
-      } else {
-         result = char.charCodeAt(0)
-      }
-      return String.fromCharCode(result)
+class Atbash {
+   constructor() {
+      this.text = "";
+      this.upper = new RegExp(/[A-Z]/);
+      this.lower = new RegExp(/[a-z]/);
+      this.uoffset = 'A'.charCodeAt(0) + 'Z'.charCodeAt(0);
+      this.loffset = 'a'.charCodeAt(0) + 'z'.charCodeAt(0);
    }
-   ).join('')
+
+   setText(text) {
+      this.text = text;
+   }
+
+   getText() {
+      return this.text;
+   }
+
+   encode() {
+      return this.text.split('')
+      .map( char => {
+         let result = 0
+         if( this.upper.test(char) ) {
+            result = this.uoffset - char.charCodeAt(0)
+         }
+         else if( this.lower.test(char) ) {
+            result = this.loffset - char.charCodeAt(0)
+         } else {
+            result = char.charCodeAt(0)
+         }
+         return String.fromCharCode(result)
+      }
+      ).join('')
+   }
 }
+
+let atbash = new Atbash();

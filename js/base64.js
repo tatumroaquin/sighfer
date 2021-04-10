@@ -1,73 +1,88 @@
-let b64encode = (...args) =>
-{
-   let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-   let text = args[0];
-   let result = "", padding = "", count = text.length % 3;
-   
-   // add zero pad to make the length of text a multiple of 3
-   if (count > 0) {
-      while (count < 3) {
-         ++count;
-         padding += '=';
-         text += "\0";
+class Base64 {
+   constructor(...args) {
+      this.text = args[0];
+      this.chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+   }
+
+   setText(text) {
+      this.text = text;
+   }
+
+   getText() {
+      return this.text;
+   }
+
+   encode() {
+      let result = "", padding = "", count = this.text.length % 3;
+
+      // add zero pad to make the length of text a multiple of 3
+      if (count > 0) {
+         while (count < 3) {
+            ++count;
+            padding += '=';
+            this.text += "\0";
+         }
       }
+      // arithmetic shift left (num * 2^shift) combine 8-bit ASCII to 24-bit num
+      for (let i = 0; i < this.text.length; i += 3) {
+         let num = 
+            (this.text.charCodeAt(i) << 16) + 
+            (this.text.charCodeAt(i + 1) << 8) + 
+            this.text.charCodeAt(i + 2);
+
+         // separate 24-bit num to chunks of 6-bit num, using binary extraction
+         num = [ 
+            (num >>> 18) & 63, 
+            (num >>> 12) & 63, 
+            (num >>> 6) & 63, 
+            num & 63 
+         ];
+
+         // use 6-bit num as an index to the chars array convert to base64
+         result += 
+            this.chars[num[0]] + 
+            this.chars[num[1]] + 
+            this.chars[num[2]] + 
+            this.chars[num[3]];
+      }
+      result = result.substr(0, result.length - padding.length) + padding;
+      return result;
    }
 
-   // increment over the input string in steps of 3
-   for (let i = 0; i < text.length; i += 3) {
+   decode() {
+      let result = "", padding = "";
+      let keymap = {}, count = this.text.length % 3;
+
+      for(let i = 0; i < this.chars.length; i++)
+         keymap[ this.chars[i] ] = i;
+
+      // cleanup input data remove all chars not inside the base64 chars
+      this.text = this.text.replace(new RegExp("[^a-zA-Z0-9+/=]", "g"), "");
+
+      let segment = this.text.substr(this.text.length - 2, 2).replace(/[^=]/g, '');
+      for (let i = 0; i < segment.length; i++)
+         padding += "A";
+
+      this.text = this.text.substr(0, this.text.length - padding.length) + padding;
       
-      // combine every 3 chars into a single 24-bit binary num using arithmetic shifting
-      let num = (text.charCodeAt(i) << 16) + (text.charCodeAt(i + 1) << 8) + text.charCodeAt(i + 2);
+      // increment by 4 chars, left shift combine back to 6-bit num to 24-bit
+      for (let i = 0; i < this.text.length; i += 4) {
 
-      // split 24-bit num into 4 using binary extraction, using logical shift to preserve sign bit
-      num = [ (num >>> 18) & 63, (num >>> 12) & 63, (num >>> 6) & 63, num & 63 ];
+         let num = (keymap[this.text.charAt(i)] << 18) + 
+                   (keymap[this.text.charAt(i + 1)] << 12) +
+                   (keymap[this.text.charAt(i + 2)] << 6) +
+                   keymap[this.text.charAt(i + 3)];
 
-      // using the 6-bit nums as indices select a char from chars and concatenate
-      result += chars[num[0]] + chars[num[1]] + chars[num[2]] + chars[num[3]];
+         // split 24-bit num back to ASCII 8-bit logical shift (always zeros)
+         result += String.fromCharCode( 
+            (num >>> 16) & 255, (num >>> 8) & 255, num & 255
+         );
+      }
+
+      result = result.replace(/\0*$/, ''); //remove occurence of zero pad
+      return result;
+
    }
-
-   result = result.substr(0, result.length - padding.length) + padding;
-   return result;
 }
 
-let b64decode = (...args) =>
-{
-   let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-   let text = args[0], keymap = {};
-   let result = "", padding = "", count = text.length % 3;
-
-   // generate character map char:index
-   for(let i = 0; i < chars.length; i++)
-      keymap[ chars[i] ] = i;
-
-   // remove any characters that is not in the base64 charset
-   text = text.replace(new RegExp("[^a-zA-Z0-9+/=]", "g"), "");
-
-   // create padding string based on the number of '=' characters in the string.
-   if (text.charAt(text.length - 1) == '=')
-      if (text.charAt(text.length - 2) == '=')
-         padding = 'AA';
-      else
-         padding = 'A';
-   else
-      padding = "";
-
-   // replace '=' with 'A' for zero in the padding string
-   text = text.substr(0, text.length - padding.length) + padding;
-   
-   // increment over the input string in steps of 4
-   for (let i = 0; i < text.length; i += 4) {
-
-      // convert every 4 chars to a 24-bit num  and concatenate by arithmetic shift
-      let num = (keymap[text.charAt(i)] << 18) + 
-                (keymap[text.charAt(i+1)] << 12) +
-                (keymap[text.charAt(i+2)] << 6) +
-                keymap[text.charAt(i+3)];
-
-      // split the 24-bit into 8-bit numbers using binary extraction 2^8 - 1 = 255
-      result += String.fromCharCode( (num >>> 16) & 255, (num >>> 8) & 255, num & 255);
-   }
-
-   result = result.substr(0, result.length - padding.length);
-   return result;
-}
+let base64 = new Base64();
