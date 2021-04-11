@@ -15,10 +15,15 @@ class Hex {
    encode() {
       let arr = this.text.split('');
       let result = '';
-      for (let char of arr) {
-         result += 
-            this.base[ char.charCodeAt(0) >>> 4 & 15 ] + 
-            this.base[ char.charCodeAt(0) & 15 ];
+
+      for (let i = 0; i < arr.length; i++) {
+         if (i > 0 && i % 2 == 0)
+            result += " ";
+
+         result +=
+            this.base[ arr[i].charCodeAt(0) >>> 4 % 15] + 
+            this.base[ arr[i].charCodeAt(0) & 15 ];
+
       }
       return result;
    }
