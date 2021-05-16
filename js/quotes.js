@@ -15,5 +15,6 @@ let quotes = [
    "In movies they tell stories about the outcasts of society, but they never tell you stories about misfits among those outcasts.",
    "you may think that the earth is flat or round, I say neither... it's fucked",
    "If you ask me how I know the things I know, how I do the things I do, the truth is... everybody knows what I know and everybody does I do... you're just not aware of your own potential",
-   "It is better to be hated and have competence, than have incompetence and be hated, people will always find a way to hate others."
+   "It is better to be hated and have competence, than have incompetence and be hated, people will always find a way to hate others.",
+   "You complain about life, your mental health, how it sucks to be alive, and then you tell me that you don't need fixing... there is irony in your arrogance my friend"
 ];
