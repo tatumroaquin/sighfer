@@ -3,6 +3,7 @@
 This website is an ongoing project to understand various types of cryptographic ciphers used to represent information in a  different way. Life is just a __rubix cube__ no matter how different each permutations may be their shape will always remain a cube.
 
 <h2 align="center">Ciphers Available</h2>
+
 | Cipher    | Description |
 ------------|-------------|
 | Atbash    | monoalphabetic substitution cipher originally used by Hebrews to encrypt the Torah and essentially uses a reversed alphabet |
