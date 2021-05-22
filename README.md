@@ -1,5 +1,12 @@
 <h1 align="center"><a href="https://ormux.github.io/sighfer">Sighfer</a></h1>
 <h5 align="center">06/03/2021 - Present</h5>
+<h4 align="center">technologies</h5>
+<div align="center">
+   <img alt="html" src="https://img.shields.io/badge/-HTML-black?logo=html5">
+   <img alt="bootstrap" src="https://img.shields.io/badge/-Bootstrap-black?logo=bootstrap">
+   <img alt="css" src="https://img.shields.io/badge/-CSS-black?logo=css3">
+   <img alt="javascript" src="https://img.shields.io/badge/-JavaScript-black?logo=javascript">
+</div>
 
 This website is an ongoing project to understand various types of cryptographic ciphers used to represent information in a  different way. Life is just a __rubix cube__ no matter how different each permutations may be their shape will always remain a cube.
 
