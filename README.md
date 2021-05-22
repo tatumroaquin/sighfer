@@ -1,12 +1,8 @@
-# Sighfer
-A collection of classical cipher encrypt/decryption tools, for solving cryptographic puzzles and to understand how information is represented in different forms.
+<h1 align="center"><a href="https://ormux.github.io/sighfer">Sighfer</a></h1>
+<h5 align="center">06/03/2021 - Present</h5>
+This website is an ongoing project to understand various types of cryptographic ciphers used to represent information in a  different way.
 
-@author: ormux  
-@date: 06/03/2021  
-@link: https://ormux.github.io/sighfer  
-@modified: 10/04/2021  
-@title: Sighfer Central  
-@type: website  
+Life is just a __rubix cube__ no matter how different each permutations may be their shape will always remain a cube.
 
 ### Ciphers Available (Rainbow People Update)
 | Cipher    | Description |
