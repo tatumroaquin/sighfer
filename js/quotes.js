@@ -1,21 +1,10 @@
 let quotes = [
    "As I gaze upon the world, I *sigh* my life away to the hidden messages.",
-   "Sometimes it takes a little bit of eccentricity to realize the true nature of the universe.",
-   "I was once a humble programmer, now I am still a programmer but less humble.",
-   "I made this website so that I may provide a means for normal people to interpret the hidden.",
-   "If you are looking for happiness, you won't find it here, but I can make you understand what it means to be human.",
-   "Maybe you're a failure, maybe you're successful, either way don't be delusional, make an effort to see things for what they truly are.",
-   "The art of invincibility is not found by relying on people, because people are unreliable... being independent, self-sufficient, and dependable gives you power like no other.",
-   "I share my thoughts in encrypted form so that those who have the skills to decode it will likely read them, and hopefully they sleep wiser than they were yesterday.",
+   "Sometimes it takes a little bit of eccentricity to see the awesome nature of the universe.",
    "Through imitation we learn, we memorise, we practice all that we know so that we may acquire our own originality.",
-   "Studying calculus has given me an insight about the concept of infinity, and I realised that it is an exact blueprint of the mind.",
-   "By observing evolution, making artificial intelligence, and learning the language of the machines, I saw profound truths about the world that I didn't realise before...",
-   "The world as you know it is an illusion, all that you see, hear, smell, taste, and touch are the five pillars of this great prison you call reality.",
-   "My words are mine and mine alone, I discover my own wisdom, and avoid using the words of others as a compass for my own life.",
-   "In movies they tell stories about the outcasts of society, but they never tell you stories about misfits among those outcasts.",
-   "you may think that the earth is flat or round, I say neither... it's fucked",
-   "If you ask me how I know the things I know, how I do the things I do, the truth is... everybody knows what I know and everybody does I do... you're just not aware of your own potential",
-   "It is better to be hated and have competence, than have incompetence and be hated, people will always find a way to hate others.",
-   "You complain about life, your mental health, how it sucks to be alive, and then you tell me that you don't need fixing... there is irony in your arrogance my friend",
-   "Every single quote in this website sounds edgy doesn't it? Well that doesn't change the fact that it is true."
+"The first known evidence of cryptography usage is found in 1900 BC, at the tomb of an Egyptian nobleman Khnumhotep II.",
+"The most recognised historical cipher is used by Julius Caesar to convey secret messages to his army generals posted in war fronts.",
+"In the 16th century Giovan Battista Bellaso invented the 'vignere cipher' in 1553. But was attributed to Blaise de Vignere, who devised a similar cipher in 1586.",
+"In the industrial revolution Edward Huge Herbern invented an electro-mechanical encryptor using parts of standard and eletrical typewriters. It was known as the Herbern rotor machine, which holds a secret key in a rotating disc.",
+"During the WW2 the German intellgence forces used the Enigma machine to communicate their operations. it was invented by the German engineer Arthur Scherbius at the end of WW1."
 ];
