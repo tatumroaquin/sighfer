@@ -29,7 +29,7 @@ class Hex {
    }
 
    decode() {
-      let str = this.text.replace(/\s+/g, '');
+      let str = this.text.replace(/\s+/g, '').toLowerCase();
       let result = '', keymap = {};
 
       for (let i = 0; i < this.base.length; i++)
