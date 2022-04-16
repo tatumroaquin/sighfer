@@ -1,6 +1,7 @@
 class Playfair {
    constructor(...args) {
       this.text = args[0];
+      this.words = 0;
       this.key = args[1];
       this.offset = 'a'.charCodeAt(0);
       this.matrix = [];
@@ -53,32 +54,65 @@ class Playfair {
       console.log(result);
    }
 
-   cleanText() {
+   i_to_j() {
       this.setText(this.text.replace(/i/g,'j'));
    }
 
+   isPair(charA, charB) {
+      return charA === charB;
+   }
+
+   isAlpha(chr) {
+      let regExp = new RegExp('^[A-Z]$', 'i');
+      return regExp.test(chr)
+   }
+
+   // pairs are two consecutive le[tt]ers split them to 'le tx te rs'
    splitPairs() {
-      let result = "";
-      for (let i = 0; i < this.text.length; i++) {
-         if (this.text[i] === this.text[i+1])
-            result += this.text[i] + 'x';
-         else
-            result += this.text[i];
+      let buffer = this.text.split('');
+
+      //iterate only at multiples of two
+      for (let i = 0; i < buffer.length; i += 2) {
+         let charA = buffer[i];
+         let charB = buffer[i+1];
+
+         if (this.isAlpha(charA) && this.isAlpha(charB)) {
+            if (this.isPair(charA, charB)) {
+               buffer.splice(i+1, 0, 'x');
+            }
+         } else if (!this.isAlpha(charA)) {
+            charA = buffer[++i];
+            charB = buffer[i+1];
+
+            if (this.isPair(charA, charB)) {
+               buffer.splice(i+1, 0, 'x');
+            }
+         } else {
+            charA = buffer[i++];
+            charB = buffer[i+1];
+
+            if (this.isPair(charA, charB)) {
+               buffer.splice(i+1, 0, 'x');
+            }
+         }
       }
-      this.setText(result);
+
+      //if text is odd add letter 'z'
+      let letters = buffer.join('').replace(/[^a-z]/ig,'');
+      if (letters.length % 2) {
+         buffer.push('z');
+      }
+
+      this.setText(buffer.join(''));
    }
 
    evenPadding() {
-      if (this.text.length % 2)
+      if (this.text.length % 2 === 1)
          this.setText(this.text + 'z');
    }
 
    genDigraph() {
       let result = [];
-
-      if (this.text.length % 2 === 1) {
-         this.setText(this.text + 'z');
-      }
 
       for (let i = 0; i <= this.text.length - 2; i += 2) {
          let chunk = this.text[i] + this.text[i+1];
@@ -92,6 +126,8 @@ class Playfair {
       this.setDigraph(result);
    }
 
+
+   // key string is the top row of the matrix, if it exceeds 5 characters it continues below
    genMatrix() {
       let chunk = [];
       this.setMatrix([]);
@@ -126,10 +162,10 @@ class Playfair {
 
    findCoordinates(c) {
       let result = [];
-      for (let i = 0; i < this.matrix.length; i++) {
-         for (let j = 0; j < this.matrix[i].length; j++) {
-            if (this.matrix[i][j] === c) {
-               result.push(j, i);
+      for (let y = 0; y < this.matrix.length; y++) {
+         for (let x = 0; x < this.matrix[y].length; x++) {
+            if (this.matrix[y][x] === c) {
+               result.push(x, y);
             }
          }
       }
@@ -149,8 +185,8 @@ class Playfair {
       // pre encryption operations, sanitize input text and key
       this.genMatrix();
       this.splitPairs();
-      this.evenPadding();
-      this.cleanText();
+      this.i_to_j();
+      //this.evenPadding();
       this.genDigraph();
 
       for (let i = 0; i < this.digraph.length; i++) {
