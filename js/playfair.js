@@ -40,11 +40,15 @@ class Playfair {
       return this.digraph;
    }
 
+   i_to_j(text) {
+      return text.replace(/i/g,'j')
+   }
+
    cleanKey() {
       //replace "i" with "j"
-      this.setKey(this.key.replace(/i/g,'j'));
+      this.setKey(this.i_to_j(this.key));
 
-      //remove duplicates
+      //remove duplicate letters
       let result = "";
       for (let i = 0; i < this.key.length; i++) {
          if (result.includes(this.key[i]) === false)
@@ -54,16 +58,17 @@ class Playfair {
       console.log(result);
    }
 
-   i_to_j() {
-      this.setText(this.text.replace(/i/g,'j'));
+   cleanText() {
+      this.setText(this.i_to_j(this.text));
    }
 
    isPair(charA, charB) {
       return charA === charB;
    }
 
+   // boolean return if character is alphabetical
    isAlpha(chr) {
-      let regExp = new RegExp('^[A-Z]$', 'i');
+      let regExp = new RegExp('^[A-Za-z]$', 'i');
       return regExp.test(chr)
    }
 
@@ -73,22 +78,25 @@ class Playfair {
 
       //iterate only at multiples of two
       for (let i = 0; i < buffer.length; i += 2) {
-         let charA = buffer[i];
-         let charB = buffer[i+1];
+         let charA = buffer[i]
+         let charB = buffer[i+1]
 
+         // both letters are alphabetical
          if (this.isAlpha(charA) && this.isAlpha(charB)) {
             if (this.isPair(charA, charB)) {
                buffer.splice(i+1, 0, 'x');
             }
+         // if charA is a space/symbol/number
          } else if (!this.isAlpha(charA)) {
-            charA = buffer[++i];
+            charA = buffer[++i]; // pre-increment (i = 0; ++0; i = 1)
             charB = buffer[i+1];
 
             if (this.isPair(charA, charB)) {
                buffer.splice(i+1, 0, 'x');
             }
+         // if charB is a space/symbol/number
          } else {
-            charA = buffer[i++];
+            charA = buffer[i++]; // post-increment (i = 0; 0++; i = 0)
             charB = buffer[i+1];
 
             if (this.isPair(charA, charB)) {
@@ -97,29 +105,22 @@ class Playfair {
          }
       }
 
-      //if text is odd add letter 'z'
+      // letters = all letters no spaces/symbols/numbers
       let letters = buffer.join('').replace(/[^a-z]/ig,'');
-      if (letters.length % 2) {
-         buffer.push('z');
-      }
+
+      //if letters is odd add letter 'z'
+      if (letters.length % 2) buffer.push('z');
 
       this.setText(buffer.join(''));
    }
 
-   evenPadding() {
-      if (this.text.length % 2 === 1)
-         this.setText(this.text + 'z');
-   }
-
+   // split text into chunks of two, split pairs made the text even
    genDigraph() {
+      let buffer = this.text.replace(/[^a-z]/ig,'').split('')
       let result = [];
 
-      for (let i = 0; i <= this.text.length - 2; i += 2) {
-         let chunk = this.text[i] + this.text[i+1];
-
-         if (this.text[i] === this.text[i+1])
-            chunk = this.text[i] + 'x';
-
+      for (let i = 0; i < buffer.length; i += 2) {
+         let chunk = buffer[i] + buffer[i+1];
          result.push(chunk);
       }
 
@@ -131,7 +132,6 @@ class Playfair {
    genMatrix() {
       let chunk = [];
       this.setMatrix([]);
-      this.cleanKey();
 
       // 5x5 matrix chunking the key operation
       for (let i = 0; i < this.key.length; i++) {
@@ -161,15 +161,14 @@ class Playfair {
    }
 
    findCoordinates(c) {
-      let result = [];
       for (let y = 0; y < this.matrix.length; y++) {
          for (let x = 0; x < this.matrix[y].length; x++) {
             if (this.matrix[y][x] === c) {
-               result.push(x, y);
+               let result = [x, y];
+               return result;
             }
          }
       }
-      return result;
    }
 
    getCharacter(x, y) {
@@ -180,13 +179,13 @@ class Playfair {
    //pt: at ta ck at da wn
    //ct: cr rc lm cr bl vb
    encode() {
-      let result = "";
+      let result = [];
 
       // pre encryption operations, sanitize input text and key
+      this.cleanKey();
+      this.cleanText();
       this.genMatrix();
       this.splitPairs();
-      this.i_to_j();
-      //this.evenPadding();
       this.genDigraph();
 
       for (let i = 0; i < this.digraph.length; i++) {
@@ -195,24 +194,33 @@ class Playfair {
          let a_coord = this.findCoordinates(a);
          let b_coord = this.findCoordinates(b);
 
-         if (a_coord[0] === b_coord[0])  { //same column case x = x
+         //same column case swap x values (x = x)
+         if (a_coord[0] === b_coord[0])  { 
             let newA = this.getCharacter(a_coord[0], (a_coord[1] + 1) % 5)
             let newB = this.getCharacter(b_coord[0], (b_coord[1] + 1) % 5)
-            result += newA + newB
+            result.push(newA, newB);
          } 
-         else if (a_coord[1] === b_coord[1]) { //same row case y = y
+         //same row case swap y values (y = y)
+         else if (a_coord[1] === b_coord[1]) { 
             let newA = this.getCharacter((a_coord[0] + 1) % 5, a_coord[1])
             let newB = this.getCharacter((b_coord[0] + 1) % 5, b_coord[1])
-            result += newA + newB
+            result.push(newA, newB);
          }
-         else { // neither case true a.x = b.x, b.x = a.x
+         // neither case true a.x = b.x, b.x = a.x
+         else { 
             let newA = this.getCharacter(b_coord[0], a_coord[1])
             let newB = this.getCharacter(a_coord[0], b_coord[1])
-            result += newA + newB
+            result.push(newA, newB);
          }
       }
 
-      return result
+      // insert space/numbers/symbols from the original text
+      for (let i = 0; i < this.text.length; i++) {
+         if (!this.isAlpha(this.text[i])) {
+            result.splice(i, 0, this.text[i])
+         }
+      }
+      return result.join('')
    }
 }
 let playfair = new Playfair();
