@@ -42,8 +42,8 @@
    .btn-small {
       display: block;
    }
-   
-   table {
+
+   .menu {
       width: 50%;
       margin: 0 auto;
    }
@@ -63,7 +63,7 @@
       display: block;
    }
 
-   table {
+   .menu {
       width: 40%;
       margin: 0 auto;
    }
@@ -83,9 +83,8 @@
       display: block;
    }
 
-   table {
+   .menu {
       width: 35%;
       margin: 0 auto;
    }
-
 }
