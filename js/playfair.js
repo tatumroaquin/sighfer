@@ -55,7 +55,6 @@ class Playfair {
             result += this.key[i];
       }
       this.setKey(result);
-      console.log(result);
    }
 
    cleanText() {
@@ -172,6 +171,8 @@ class Playfair {
    }
 
    getCharacter(x, y) {
+      x = (x + 5) % 5
+      y = (y + 5) % 5
       let result = this.matrix[y][x];
       return result;
    }
@@ -196,8 +197,8 @@ class Playfair {
 
          //same column case swap x values (x = x)
          if (a_coord[0] === b_coord[0])  { 
-            let newA = this.getCharacter(a_coord[0], (a_coord[1] + 1) % 5)
-            let newB = this.getCharacter(b_coord[0], (b_coord[1] + 1) % 5)
+            let newA = this.getCharacter(a_coord[0], (a_coord[1] + 1))
+            let newB = this.getCharacter(b_coord[0], (b_coord[1] + 1))
             result.push(newA, newB);
          } 
          //same row case swap y values (y = y)
@@ -207,6 +208,54 @@ class Playfair {
             result.push(newA, newB);
          }
          // neither case true a.x = b.x, b.x = a.x
+         else { 
+            let newA = this.getCharacter(b_coord[0], a_coord[1])
+            let newB = this.getCharacter(a_coord[0], b_coord[1])
+            result.push(newA, newB);
+         }
+      }
+
+      // insert space/numbers/symbols from the original text
+      for (let i = 0; i < this.text.length; i++) {
+         if (!this.isAlpha(this.text[i])) {
+            result.splice(i, 0, this.text[i])
+         }
+      }
+      return result.join('')
+   }
+
+   decode() {
+      let result = [];
+
+      // pre encryption operations, sanitize input text and key
+      this.cleanKey();
+      this.cleanText();
+      this.genMatrix();
+      this.splitPairs();
+      this.genDigraph();
+
+      for (let i = 0; i < this.digraph.length; i++) {
+         let a = this.digraph[i][0];
+         let b = this.digraph[i][1];
+         let a_coord = this.findCoordinates(a);
+         let b_coord = this.findCoordinates(b);
+
+         //same column case swap x values (x = x)
+         // take letter above each
+         if (a_coord[0] === b_coord[0])  { 
+            let newA = this.getCharacter(a_coord[0], (a_coord[1] - 1))
+            let newB = this.getCharacter(b_coord[0], (b_coord[1] - 1))
+            result.push(newA, newB);
+         } 
+         //same row case swap y values (y = y)
+         // take letter to the left of each
+         else if (a_coord[1] === b_coord[1]) { 
+            let newA = this.getCharacter((a_coord[0] - 1), a_coord[1])
+            let newB = this.getCharacter((b_coord[0] - 1), b_coord[1])
+            result.push(newA, newB);
+         }
+         // neither case true a.x = b.x, b.x = a.x
+         // swap x coordinates
          else { 
             let newA = this.getCharacter(b_coord[0], a_coord[1])
             let newB = this.getCharacter(a_coord[0], b_coord[1])
