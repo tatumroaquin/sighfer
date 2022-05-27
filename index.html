@@ -6,23 +6,24 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="css/main.css">
       <link rel="stylesheet" href="css/media.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
    </head>
    <body>
-      <h1 class='text-center'>
-         <span class='gradient'>Sighfer Tools</span>
-      </h1>
-      <br>
+      <div id="navbar"></div>
       <div class='container-fluid text-center'>
+         <h1 class='text-center'>
+            <span class='gradient'>Sighfer Tools</span>
+         </h1>
          <table class="menu" width=100% height=25%>
             <tr>
                <td>
-                  <button onclick="document.location.href='html/atbash.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+                  <button onclick="document.location.href='ui/atbash.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
                      <span class='gradient'>Atbash</span>
                   </button>
                </td>
 
                <td>
-                  <button onclick="document.location.href='html/base64.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+                  <button onclick="document.location.href='ui/base64.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
                      <span id='base64' class='gradient'>Base64</span>
                   </button>
                </td>
@@ -30,13 +31,13 @@
 
             <tr>
                <td>
-                  <button onclick="document.location.href='html/caesar.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+                  <button onclick="document.location.href='ui/caesar.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
                      <span class='gradient'>Caesar</span>
                   </button>
                </td>
 
                <td>
-                  <button onclick="document.location.href='html/reversal.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+                  <button onclick="document.location.href='ui/reversal.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
                      <span class='gradient'>Reversal</span>
                   </button>
                </td>
@@ -44,13 +45,13 @@
 
             <tr>
                <td>
-                  <button onclick="document.location.href='html/rot13.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+                  <button onclick="document.location.href='ui/rot13.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
                      <span class='gradient'>Rot13</span>
                   </button>
                </td>
 
                <td>
-                  <button onclick="document.location.href='html/vigenere.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+                  <button onclick="document.location.href='ui/vigenere.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
                      <span id='vigenere' class='gradient'>Vigenere</span>
                   </button>
                </td>
@@ -58,13 +59,13 @@
 
             <tr>
                <td>
-                  <button onclick="document.location.href='html/base32.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+                  <button onclick="document.location.href='ui/base32.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
                      <span class='gradient'>Base32</span>
                   </button>
                </td>
 
                <td>
-                  <button onclick="document.location.href='html/hexadecimal.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+                  <button onclick="document.location.href='ui/hexadecimal.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
                      <span id='vigenere' class='gradient'>Hexadecimal</span>
                   </button>
                </td>
@@ -72,7 +73,7 @@
 
             <tr>
                <td>
-                  <button onclick="document.location.href='html/playfair.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
+                  <button onclick="document.location.href='ui/playfair.html'" class='btn btn-outline-warning btn-block btn-lg btn-huge'>
                      <span id='vigenere' class='gradient'>Playfair</span>
                   </button>
                </td>
@@ -113,8 +114,7 @@
          }
 
          document.addEventListener('load', setQuote(elem,quote));
-      </script>
-      <script>
+
          function inProgress(name) {
             let btn = document.getElementById(name);
             let str1 = "in development";
@@ -125,6 +125,9 @@
             else
                btn.innerHTML = str1;
          }
+         $('#navbar').load('nav/navbar.html')
       </script>
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
    </body>
 </html>
