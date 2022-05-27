@@ -1,0 +1,81 @@
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Sighfer Tools</title>
+      <link rel="icon" href="img/favicon.png" type="image/png">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="css/media.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <div class="sticky-top" id="navbar"></div>
+      <script>
+         $('#navbar').load('nav/navbar.html');
+      </script>
+      <div class='container-fluid text-wrap about'>
+         <h1><span class='gradient'>About</span></h1>
+         <p>
+            <span class='gradient'>
+               This website is an ongoing project to understand various types of cryptographic ciphers used to represent information in a different way. Humans are just like a rubix cube no matter how different each permutations may be their shape will always remain the same.
+               In pursuit of understanding one works his way towards enlightenment, hence this project will never end as it is a constant labour in study of cryptography. Every update means i've learnt a new algorithm, hence will result in new encryption tools implemented by me in pure javascript.
+            </span>
+         </p>
+         <table class="ciphers">
+            <thead>
+               <tr>
+                  <th><span class="gradient">Cipher</span></th>
+                  <th><span class="gradient">Description</span></th>
+               </tr>
+            </thead>
+            <tbody class="text-warning">
+               <tr>
+                  <td>Atbash</td>
+                  <td>monoalphabetic substitution cipher originally used by Hebrews to encrypt the Torah and essentially uses a reversed alphabet</td>
+               </tr>
+               <tr>
+                  <td>Base16</td>	
+                  <td>commonly known as 'hexadecimal' an encoding scheme which translate ASCII into radix-16, and used to represent binary data in a compact form</td>
+               </tr>
+               <tr>
+                  <td>Base32</td>	
+                  <td>an encoding scheme which translates ASCII into radix-32 representation, resulting character set is one-case and is beneficial for case-insenstive transmissions</td>
+               </tr>
+               <tr>
+                  <td>Base64</td>	
+                  <td>an encoding scheme which translates ASCII into radix-64 representation, used to transfer binary data through text only channels e.g. HTTP</td>
+               </tr>
+               <tr>
+                  <td>Caesar</td>	
+                  <td>a shift cipher named after Julius Caesar, which utilises numeric shifts to displace each letter of a text by the same integer value</td>
+               </tr>
+               <tr>
+                  <td>Playfair</td>	
+                  <td>also known as "playfair square" or "wheatstone playfair" uses digrapm substitution scheme. which encrypts pairs of letters against a 5x5 grid</td>
+               </tr>
+               <tr>
+                  <td>Reversal</td>	
+                  <td>this is a modified version of the Reversal Cipher which only reverses each word and does not reverse the sentence itself</td>
+               </tr>
+               <tr>
+                  <td>Rot13</td>	
+                  <td>a special case of the Caesar Cipher which has an integer key of 13, encryption and decryption are the inverse of each other</td>
+               </tr>
+               <tr>
+                  <td>Vigenere</td>	
+                  <td>a shift cipher that uses a series of interwoven Caesar Ciphers together shifting each character by a different value depending on the cipher key</td>
+               </tr>
+            </tbody>
+         </table>
+         <br>
+         <p class="text-center">
+            <span class='gradient'>
+               <strong>made by ormux</strong>
+            </span>
+         </p>
+
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+   </body>
+</html>
