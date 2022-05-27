@@ -44,19 +44,31 @@
    background-clip: text;
    color: transparent;
 }
+
 .btn-outline-warning:hover {
    background-color: #303030 !important;
 }
+
 body {
    background-color: black;
    font-family: 'TerminessTTF Nerd Font Mono';
 }
+
 span {
    display: inline-block;
    word-wrap: break-word;
 }
+
 table {
    border-spacing: 10px;
    border-collapse: separate;
    table-layout: fixed;
+}
+
+.ciphers {
+   border: 0.1rem solid limegreen;
+}
+
+#quote {
+   font-size: 1rem;
 }
