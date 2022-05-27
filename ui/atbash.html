@@ -6,12 +6,16 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="../css/main.css">
       <link rel="stylesheet" href="../css/media.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
    </head>
    <body>
+      <div class="sticky-top" id="navbar"></div>
       <script src="../js/atbash.js"></script>
       <script src="../js/output.js"></script>
+      <script>
+         $('#navbar').load('../nav/navbar.html');
+      </script>
 
-      <button onclick="document.location.href='../index.html'" class='btn btn-outline-warning'>Menu</button>
       <h1 class='text-center'>
          <span class='gradient'>Atbash Cipher</span>
       </h1>
@@ -33,6 +37,7 @@
             </button>
          </div>
       </div>
-
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
    </body>
 </html>
