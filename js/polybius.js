@@ -12,6 +12,14 @@ class Polybius {
       return this.text;
    }
 
+   i_to_j(text) {
+      return text.replace(/i/g,'j')
+   }
+
+   cleanText() {
+      this.setText(this.i_to_j(this.text.toLowerCase()));
+   }
+
    setMatrix(matrix) {
       this.matrix = matrix;
    }
@@ -54,7 +62,7 @@ class Polybius {
    }
 
    isAlpha(char) {
-      let regExp = new RegExp('^[A-Za-z]$', 'i');
+      let regExp = new RegExp('^[a-z]$', 'i');
       return regExp.test(char)
    }
 
@@ -64,11 +72,13 @@ class Polybius {
    }
 
    encode() {
+      this.cleanText();
+      this.genMatrix();
       let buffer = this.text.split(' ');
       let result = buffer.map(word => {
          let cipher = '';
          for (let i = 0; i < word.length; i++) {
-            if (this.isAlpha(word[i]) {
+            if (this.isAlpha(word[i])) {
                let coord = this.findCoordinates(word[i]);
                cipher += coord[0] + 1;
                cipher += coord[1] + 1;
@@ -76,23 +86,24 @@ class Polybius {
          }
          return cipher;
       })
-      return result;
+      return result.join(' ');
    }
 
    decode() {
+      this.genMatrix();
       let buffer = this.text.split(' ');
       let result = buffer.map(cipher => {
          let word = '';
          for (let i = 0; i < cipher.length; i += 2) {
-            if (this.isDigit(cipher[i]) {
+            if (this.isDigit(cipher[i])) {
                let x = parseInt(cipher[i]) - 1;
-               let y = parseInt(cipher[i]) - 1;
-               word += findCharacter(x, y);
+               let y = parseInt(cipher[i+1]) - 1;
+               word += this.findCharacter(x, y);
             }
          }
          return word;
-      }
-      return result;
+      })
+      return result.join(' ');
    }
 }
 
