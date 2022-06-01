@@ -40,6 +40,15 @@ class Polybius {
       this.matrix.push(chunk);
    }
 
+   findCoordinates(char) {
+      for (let y = 0; y < this.matrix.length; y++) {
+         for (let x = 0; x < this.matrix[y].length; x++) {
+            if (this.matrix[y][x] === char)
+               return [x, y];
+         }
+      }
+   }
+
    encode() {
    }
 }
