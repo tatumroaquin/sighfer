@@ -49,6 +49,11 @@ class Polybius {
       }
    }
 
+   isAlpha(chr) {
+      let regExp = new RegExp('^[A-Za-z]$', 'i');
+      return regExp.test(chr)
+   }
+
    encode() {
    }
 }
