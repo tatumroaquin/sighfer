@@ -49,12 +49,50 @@ class Polybius {
       }
    }
 
-   isAlpha(chr) {
+   findCharacter(x, y) {
+      return this.matrix[y][x];
+   }
+
+   isAlpha(char) {
       let regExp = new RegExp('^[A-Za-z]$', 'i');
-      return regExp.test(chr)
+      return regExp.test(char)
+   }
+
+   isDigit(char) {
+      let regExp = new RegExp('^[0-9]$', 'g');
+      return regExp.test(char)
    }
 
    encode() {
+      let buffer = this.text.split(' ');
+      let result = buffer.map(word => {
+         let cipher = '';
+         for (let i = 0; i < word.length; i++) {
+            if (this.isAlpha(word[i]) {
+               let coord = this.findCoordinates(word[i]);
+               cipher += coord[0] + 1;
+               cipher += coord[1] + 1;
+            } 
+         }
+         return cipher;
+      })
+      return result;
+   }
+
+   decode() {
+      let buffer = this.text.split(' ');
+      let result = buffer.map(cipher => {
+         let word = '';
+         for (let i = 0; i < cipher.length; i += 2) {
+            if (this.isDigit(cipher[i]) {
+               let x = parseInt(cipher[i]) - 1;
+               let y = parseInt(cipher[i]) - 1;
+               word += findCharacter(x, y);
+            }
+         }
+         return word;
+      }
+      return result;
    }
 }
 
