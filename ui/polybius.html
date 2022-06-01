@@ -1,7 +1,7 @@
 <html>
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Polybius Cipher</title>
+      <title>Polybius Encoding</title>
       <link rel="icon" href="../img/favicon.png" type="image/png">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="../css/main.css">
@@ -13,11 +13,11 @@
       <script src="../js/polybius.js"></script>
       <script src="../js/output.js"></script>
       <script>
-         $('#navbar').load('../nav/navbar.html')
+         $('#navbar').load('../nav/navbar.html');
       </script>
 
       <h1 class='text-center'>
-         <span class='gradient'>Polybius Cipher</span>
+         <span class='gradient'>Polybius Encoding</span>
       </h1>
       <h6 class='text-center'>
          <span class='gradient'>ormux</span>
@@ -30,13 +30,27 @@
       </div>
 
       <div class='container-fluid'>
-         <div class='text-center'>
-            <button onclick="output(polybius, 'encode')" class='btn btn-outline-warning btn-lg btn-huge btn-small mx-auto'>
-               <span class='gradient'>translate</span>
-            </button>
-            <button onclick="output(polybius, 'encode')" class='btn btn-outline-warning btn-block btn-lg btn-huge btn-large'>
-               <span class='gradient'>translate</span>
-            </button>
+         <div class="text-center">
+            <table class="mx-auto" width=100%>
+               <tr>
+                  <td>
+                     <button onclick="output(polybius, 'encode')" style="float: right;" class='btn btn-outline-warning btn-lg btn-huge btn-small'>
+                        <span class='gradient'>encode</span>
+                     </button>
+                     <button onclick="output(polybius, 'encode')" class='btn btn-outline-warning btn-block btn-lg btn-huge btn-large'>
+                        <span class='gradient'>encode</span>
+                     </button>
+                  </td>
+                  <td>
+                     <button onclick="output(polybius, 'decode')" class='btn btn-outline-warning btn-lg btn-huge btn-small'>
+                        <span class='gradient'>decode</span>
+                     </button>
+                     <button onclick="output(polybius, 'decode')" class='btn btn-outline-warning btn-block btn-lg btn-huge btn-large'>
+                        <span class='gradient'>decode</span>
+                     </button>
+                  </td>
+               </tr>
+            </table>
          </div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
