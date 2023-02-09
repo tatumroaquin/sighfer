@@ -1,7 +1,4 @@
 let quotes = [
-   "As I gaze upon the world, I *sigh* my life away to the hidden messages.",
-   "Sometimes it takes a little bit of eccentricity to see the awesome nature of the universe.",
-   "Through imitation we learn, we memorise, we practice all that we know so that we may acquire our own originality.",
 "The first known evidence of cryptography usage is found in 1900 BC, at the tomb of an Egyptian nobleman Khnumhotep II.",
 "The most recognised historical cipher is used by Julius Caesar to convey secret messages to his army generals posted in war fronts.",
 "In the 16th century Giovan Battista Bellaso invented the 'vignere cipher' in 1553. But was attributed to Blaise de Vignere, who devised a similar cipher in 1586.",
